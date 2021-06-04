@@ -5,37 +5,36 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName = '';
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question = ["Who was the first American woman in space?","True or false: 5000 meters = 5 kilometers.","(5 + 3)/2 * 10 = ?","Given the array [8, 'Orbit', ;;'Trajectory', 45] what entry is at index 2?","What is the minimum crew size for the International Space Station (ISS)?"]
-let correctAnswer = ['sally ride', "true", "40", "trajectory", "3"]
+let question = 5
+let correctAnswer = 0
 let candidateAnswer = '';
-let questions;
-let correctAnswers;
-let candidateAnswers;
-
+let questions = ["Who was the first American woman in space?","True or false: 5000 meters = 5 kilometers.","(5 + 3)/2 * 10 = ?","Given the array [8, 'Orbit','Trajectory', 45] what entry is at index 2?","What is the minimum crew size for the International Space Station (ISS)?"]
+let correctAnswers = ['Sally Ride', "True", "40", "Trajectory", "3"]
+let candidateAnswers = []
+let candidateScore = 0;
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
 candidateName = input.question('Please enter your Name: ');
-
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  for(let i = 0; i < question.length; i++)
- console.log(`1) ${question[0]}`); 
- candidateAnswer = input.question("").toLowerCase();
- 
+  for(let i = 0; i < questions.length; i++){
+  candidateAnswers[i] = input.question(`${i+1}) ${questions[i]} \n Your Answer: `) 
+  console.log(`Correct Answer: ${correctAnswers[i]}`)
+  }
 }
-function gradeQuiz(candidateAnswers) {
 
+
+function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-if(candidateAnswer.includes(correctAnswer[0])){
-  console.log(`Your answer, ${candidateAnswer}, is Correct`);
-} else{
-  console.log(`Your answer, ${candidateAnswer}, is Incorrect`);
+for(let i = 0; i < candidateAnswers; i++){
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+ candidateScore++
+  }
 }
-  let grade
-  
+  let grade =  candidateScore/question * 100
 
   return grade
 }
