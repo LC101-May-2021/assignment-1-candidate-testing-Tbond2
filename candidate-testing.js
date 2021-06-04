@@ -11,7 +11,7 @@ let candidateAnswer = '';
 let questions = ["Who was the first American woman in space?","True or false: 5000 meters = 5 kilometers.","(5 + 3)/2 * 10 = ?","Given the array [8, 'Orbit','Trajectory', 45] what entry is at index 2?","What is the minimum crew size for the International Space Station (ISS)?"]
 let correctAnswers = ['Sally Ride', "True", "40", "Trajectory", "3"]
 let candidateAnswers = []
-let candidateScore = 0;
+let candidateAnswers = 0
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -24,18 +24,26 @@ function askQuestion() {
   candidateAnswers[i] = input.question(`${i+1}) ${questions[i]} \n Your Answer: `) 
   console.log(`Correct Answer: ${correctAnswers[i]}`)
   }
+  for(let i = 0; i < candidateAnswers.length; i++){
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+    candidateScore = candidateScore + 1; 
+  } else{
+    candidateScore = candidateScore - 1;
+  }
+} return candidateScore
 }
 
 
 function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-for(let i = 0; i < candidateAnswers; i++){
-  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
- candidateScore++
-  }
-}
-  let grade =  candidateScore/question * 100
 
+  let grade =  candidateScore/question * 100
+  console.log(`You answered ${candidateScore}/5 questions correct, that's a ${grade}%`)
+  if (grade >= 80){
+    console.log("Status: PASSED")
+  } else{
+    console.log("Status: FAILED")
+  }
   return grade
 }
 
