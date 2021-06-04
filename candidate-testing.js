@@ -6,7 +6,7 @@ const input = require('readline-sync');
 let candidateName = '';
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = ["Who was the first American woman in space?","True or false: 5000 meters = 5 kilometers.","(5 + 3)/2 * 10 = ?","Given the array [8, 'Orbit', ;;'Trajectory', 45] what entry is at index 2?","What is the minimum crew size for the International Space Station (ISS)?"]
-let correctAnswer = ['Sally Ride', "True", "40", "Trajectory", "3"]
+let correctAnswer = ['sally ride', "true", "40", "trajectory", "3"]
 let candidateAnswer = '';
 let questions;
 let correctAnswers;
@@ -22,7 +22,8 @@ candidateName = input.question('Please enter your Name: ');
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
  console.log(question[0]);
- candidateAnswer = input.question("")
+ candidateAnswer = input.question("").toLowerCase();
+ 
 }
 function gradeQuiz(candidateAnswers) {
 
