@@ -21,7 +21,8 @@ candidateName = input.question('Please enter your Name: ');
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
- console.log(question[0]);
+  for(let i = 0; i < question.length; i++)
+ console.log(`1) ${question[0]}`); 
  candidateAnswer = input.question("").toLowerCase();
  
 }
