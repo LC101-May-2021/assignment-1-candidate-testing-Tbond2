@@ -29,7 +29,7 @@ function askQuestion() {
   if (candidateAnswers[a].toLowerCase() === correctAnswers[a].toLowerCase()){
     candidateScore = candidateScore + 1; 
   } else{
-    candidateScore = candidateScore - 1;
+  
   }
 } return candidateScore
 }
