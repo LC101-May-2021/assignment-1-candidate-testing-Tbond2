@@ -26,7 +26,7 @@ function askQuestion() {
   }
 
   for(let a = 0; a < candidateAnswers.length; a++){
-  if (candidateAnswers[a].toLowerCase() === correctAnswers[a].toLowerCase()){
+  if (candidateAnswers[a].toLowerCase().trim() === correctAnswers[a].toLowerCase().trim()){
     candidateScore = candidateScore + 1; 
   } else{
   
